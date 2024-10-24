@@ -29,6 +29,7 @@ EOF
 
 
 
+
 resource "aws_iam_policy" "iam_policy_for_resume_project" {
 
   name        = "aws_iam_policy_for_terraform_resume_project_policy"
@@ -66,11 +67,11 @@ resource "aws_iam_role_policy_attachment" "attach_iam_policy_to_iam_role" {
 }
 
 
-
 data "archive_file" "zip"{
     type = "zip"
     source_dir = "${path.module}/lambda/"
     output_path = "${path.module}/packedlambda.zip"
+
 
 
 }
@@ -84,3 +85,6 @@ resource "aws_lambda_function_url" "url1" {
 }
 
 }
+
+}
+
